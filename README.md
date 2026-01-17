@@ -44,10 +44,12 @@ cargo run --release
 ### 2. Run the Client (The Host)
 This runs on the computer you want to control. It will automatically connect to 127.0.0.1:8080 and authenticate.
 
-Bash
+```bash
 cd my_client
 cargo run --release
 ### 3. Connect (The Viewer)
+
+```bash
 Simply open the index.html file in any modern web browser.
 
 Login: Enter the session password (default: secret123).
