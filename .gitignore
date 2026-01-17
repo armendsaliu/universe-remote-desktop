@@ -1,0 +1,16 @@
+# Rust Build files (Huge folders we don't want)
+/target
+**/target
+
+# Windows executables and logs
+*.exe
+*.pdb
+*.log
+
+# Editor settings
+.vscode/
+.idea/
+.DS_Store
+
+# Lock file (Optional: usually good to keep, but some ignore it. Keep it.)
+# Cargo.lock

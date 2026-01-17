@@ -1,0 +1,15 @@
+[package]
+name = "my_client"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+xcap = "0.0.14"
+image = "0.25"
+tokio = { version = "1", features = ["full"] } # Async runtime
+tokio-tungstenite = "0.20"                     # WebSockets
+futures-util = "0.3"
+url = "2.4"
+enigo = "0.1" # For mouse/keyboard control
+serde = { version = "1.0", features = ["derive"] } # For parsing JSON
+serde_json = "1.0"
