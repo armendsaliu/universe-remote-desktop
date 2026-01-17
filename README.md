@@ -42,5 +42,37 @@ cd my_server
 cargo run --release
 ```
 ### 2. Run the Client (The Host)
+Run the Client (The Host)
 This runs on the computer you want to control. It will automatically connect to 127.0.0.1:8080 and authenticate.
+```bash
+cd my_client
+cargo run --release
+```
+### 3. Connect (The Viewer)
+Simply open the index.html file in any modern web browser.
 
+Login: Enter the session password (default: secret123).
+
+Status: You should see the remote desktop immediately.
+
+🛠️ Configuration
+To access this over the internet, we recommend using a secure tunnel like ngrok:
+
+Start the tunnel: ngrok http 8080
+
+Update index.html: Change SERVER_URL to your new wss://...ngrok-free.app address.
+
+🗺️ Roadmap
+[x] Basic Screen Streaming
+
+[x] Mouse & Keyboard Control
+
+[x] Password Authentication
+
+[ ] Windows Installer (.msi)
+
+[ ] File Transfer System
+
+[ ] Audio Streaming
+
+Built with ❤️ in Rust.
