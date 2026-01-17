@@ -40,3 +40,7 @@ The server acts as the bridge. It must be running first.
 ```bash
 cd my_server
 cargo run --release
+```
+### 2. Run the Client (The Host)
+This runs on the computer you want to control. It will automatically connect to 127.0.0.1:8080 and authenticate.
+
