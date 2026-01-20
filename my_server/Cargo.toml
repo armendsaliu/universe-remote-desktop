@@ -2,6 +2,10 @@
 name = "my_server"
 version = "0.1.0"
 edition = "2024"
+authors = ["Armend Saliu"]
+license = "MIT"
+description = "High Performance Remote Desktop Server"
+homepage = "https://github.com/armendsaliu/universe-remote-desktop"
 
 [dependencies]
 tokio = { version = "1", features = ["full"] }

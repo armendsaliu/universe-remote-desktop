@@ -2,6 +2,10 @@
 name = "my_client"
 version = "0.1.0"
 edition = "2021"
+authors = ["Armend Saliu"]
+license = "MIT"
+description = "Remote Desktop Agent"
+homepage = "https://github.com/armendsaliu/universe-remote-desktop"
 
 [dependencies]
 xcap = "0.0.14"

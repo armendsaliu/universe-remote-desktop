@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universe Remote V2</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #1a1a1a; color: white; margin: 0; }
+        #video-container { margin-top: 20px; }
+        img { border: 2px solid #444; max-width: 90%; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        input, button { padding: 10px; font-size: 16px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🌌 Universe Remote </h1>
+    
+    <div id="login">
+        <input type="password" id="password" placeholder="Enter Password (secret123)">
+        <button onclick="connect()">Connect</button>
+    </div>
+
+    <div id="video-container" style="display:none;">
+        <img id="stream" src="" alt="Remote Screen">
+    </div>
+
+    <script>
+        function connect() {
+            const pass = document.getElementById('password').value;
+            // Connect to the WebSocket
+            const ws = new WebSocket("ws://" + window.location.host);
+            
+            ws.binaryType = "arraybuffer";
+
+            ws.onopen = function() {
+                console.log("Connected! Sending password...");
+                // CRITICAL: Must match the Rust "AUTH:" format
+                ws.send("AUTH:" + pass);
+            };
+
+            ws.onmessage = function(event) {
+                // If we get data, we are authenticated!
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('video-container').style.display = 'block';
+
+                // Render the video frame
+                const blob = new Blob([event.data], { type: 'image/jpeg' });
+                const url = URL.createObjectURL(blob);
+                document.getElementById('stream').src = url;
+            };
+
+            ws.onclose = function() {
+                alert("Connection Failed. (Check Password or Server)");
+                location.reload();
+            };
+        }
+    </script>
+</body>
+</html>

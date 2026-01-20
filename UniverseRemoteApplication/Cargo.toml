@@ -1,0 +1,18 @@
+[package]
+name = "UniverseRemoteApplication"
+version = "0.1.0"
+edition = "2021"
+authors = ["Armend Saliu"]
+license = "MIT"
+description = "Remote Desktop Agent"
+# homepage = "https://github.com/armendsaliu/universe-remote-desktop"
+
+
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+tokio-tungstenite = "0.20"
+futures-util = "0.3"
+scrap = "0.5"
+image = "0.24"
+local-ip-address = "0.5"
